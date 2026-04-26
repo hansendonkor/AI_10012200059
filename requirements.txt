@@ -1,0 +1,49 @@
+# Name: Hansen Donkor
+# Index Number: 10012200059
+
+# =========================
+# CORE APP (UI)
+# =========================
+streamlit
+python-dotenv
+
+# =========================
+# DATA PROCESSING
+# =========================
+pandas
+numpy
+
+# =========================
+# PDF PROCESSING
+# =========================
+# Include both engines for robustness; select via config.
+pdfplumber
+PyMuPDF
+
+# =========================
+# EMBEDDINGS (RAG CORE)
+# =========================
+sentence-transformers
+# Explicit torch dependency improves install reliability on some environments.
+torch
+
+# =========================
+# VECTOR SEARCH (FAISS)
+# =========================
+faiss-cpu
+
+# =========================
+# KEYWORD SEARCH (TF-IDF)
+# =========================
+scikit-learn
+
+# =========================
+# UTILITIES
+# =========================
+tqdm
+rich
+
+# =========================
+# LLM API
+# =========================
+google-cloud-aiplatform
