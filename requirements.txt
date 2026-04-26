@@ -1,49 +1,55 @@
-# Name: Hansen Donkor
-# Index Number: 10012200059
+# ACity RAG Chatbot — Python Dependencies
+# Name: Hansen Donkor  |  Index Number: 10012200059
 
 # =========================
 # CORE APP (UI)
 # =========================
-streamlit
-python-dotenv
+streamlit>=1.32.0
+python-dotenv>=1.0.0
 
 # =========================
 # DATA PROCESSING
 # =========================
-pandas
-numpy
+pandas>=2.0.0
+numpy>=1.24.0
 
 # =========================
 # PDF PROCESSING
 # =========================
-# Include both engines for robustness; select via config.
-pdfplumber
-PyMuPDF
+# Include both engines for robustness; select via PDF_ENGINE config.
+pdfplumber>=0.10.0
+PyMuPDF>=1.23.0
 
 # =========================
 # EMBEDDINGS (RAG CORE)
 # =========================
-sentence-transformers
+sentence-transformers>=2.6.0
 # Explicit torch dependency improves install reliability on some environments.
-torch
+torch>=2.0.0
 
 # =========================
 # VECTOR SEARCH (FAISS)
 # =========================
-faiss-cpu
+faiss-cpu>=1.7.4
 
 # =========================
 # KEYWORD SEARCH (TF-IDF)
 # =========================
-scikit-learn
+scikit-learn>=1.3.0
 
 # =========================
 # UTILITIES
 # =========================
-tqdm
-rich
+tqdm>=4.65.0
+rich>=13.0.0
 
 # =========================
-# LLM API
+# LLM API (Google Vertex AI)
 # =========================
-google-cloud-aiplatform
+google-cloud-aiplatform>=1.50.0
+
+# =========================
+# GOOGLE AUTH (explicit — required for service account credentials)
+# =========================
+google-auth>=2.28.0
+google-auth-oauthlib>=1.2.0

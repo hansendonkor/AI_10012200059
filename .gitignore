@@ -1,3 +1,4 @@
+# ── Python ──────────────────────────────────────────────────────────────────
 .env
 .venv/
 venv/
@@ -6,8 +7,14 @@ __pycache__/
 .ipynb_checkpoints/
 .DS_Store
 
-# Streamlit
-.streamlit/
+# ── Credentials (NEVER commit service account keys or secrets) ───────────────
+*.json
+!package.json
+!package-lock.json
+.streamlit/secrets.toml
 
-# Local cache (optional)
+# ── Streamlit config (safe to commit, secrets are NOT) ──────────────────────
+# .streamlit/config.toml  ← intentionally NOT ignored so it gets committed
+
+# ── Local cache ─────────────────────────────────────────────────────────────
 .cache/

@@ -1,0 +1,16 @@
+# Streamlit server and theme configuration.
+# This file is safe to commit — it contains NO secrets.
+# Secrets go in .streamlit/secrets.toml (locally) or Streamlit Cloud's Secrets UI.
+
+[server]
+headless = true
+enableCORS = false
+enableXsrfProtection = true
+
+[theme]
+base = "dark"
+backgroundColor = "#0e0e14"
+secondaryBackgroundColor = "#13131c"
+textColor = "#e8e6f0"
+primaryColor = "#7c74f5"
+font = "sans serif"

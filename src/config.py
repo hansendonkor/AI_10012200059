@@ -20,8 +20,10 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 
-PROJECT_ID = "intro-to-ai-494310"
-LOCATION = "us-central1"
+# NOTE: Do NOT define PROJECT_ID / LOCATION as module-level constants.
+# All GCP configuration must come from environment variables so that
+# credentials are never hard-coded in source code or committed to Git.
+# Use .env locally and Streamlit Secrets (or env vars) in production.
 
 
 def _env_str(name: str, default: str) -> str:
@@ -95,8 +97,8 @@ class AppConfig:
 
     @property
     def gemini_model(self) -> str:
-        """Backward-compatible model label used by the UI."""
-        return "gemini-1.5-pro"
+        """Model name for the UI, resolved from GEMINI_MODEL env var."""
+        return os.getenv("GEMINI_MODEL", "gemini-2.5-flash").strip() or "gemini-2.5-flash"
 
     @staticmethod
     def from_env() -> "AppConfig":
@@ -154,8 +156,10 @@ class AppConfig:
             ),
             pdf_engine=_env_str("PDF_ENGINE", "pymupdf").strip().lower(),
             llm_provider=_env_str("LLM_PROVIDER", "vertex").strip().lower(),
-            project_id=_env_str("PROJECT_ID", PROJECT_ID).strip(),
-            location=_env_str("LOCATION", LOCATION).strip(),
+            # PROJECT_ID and LOCATION must always come from env vars.
+            # No hard-coded fallback — validation below will catch missing values.
+            project_id=_env_str("PROJECT_ID", "").strip(),
+            location=_env_str("LOCATION", "us-central1").strip(),
         )
 
         cfg.validate()
